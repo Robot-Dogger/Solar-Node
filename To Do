@@ -1,0 +1,5 @@
+Make another screen on the OLED Displaying module uptime
+Save the module_uptime variable into non-volitile memory so that it can be displayed upon next boot
+Make OLED screen display previous_uptime variable
+Add "Sketch Name" & date to code and make it be send via serial and the screen
+Clean up the hardware
