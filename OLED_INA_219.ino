@@ -89,15 +89,17 @@ void loop() {
 
   display.clear();
   display.drawString(30, 4, "busvoltage:");
-  display.drawString(30, 15, "shuntvoltage:");
-  display.drawString(30, 25, "loadvoltage:");
-  display.drawString(30, 35, "current_mA:");
-  display.drawString(30, 45, "power_mW:");
+  display.drawString(32, 14, "shuntvoltage:");
+  display.drawString(30, 24, "loadvoltage:");
+  display.drawString(30, 34, "current_mA:");
+  display.drawString(30, 43, "power_mW:");
+  display.drawString(35, 53, "Uptime in sec:");
   display.drawString(80, 4, String(busvoltage));
   display.drawString(80, 15, String(shuntvoltage));
   display.drawString(80, 25, String(loadvoltage));
   display.drawString(80, 35, String(current_mA));
-  display.drawString(80, 45, String(power_mW));
+  display.drawString(80, 44, String(power_mW));
+  display.drawString(80, 53, String(millis()/1000));
 
   display.display();
   delay(1000);
