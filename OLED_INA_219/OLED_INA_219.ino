@@ -3,6 +3,23 @@
 See more at https://thingpulse.com
 */
 
+// --------- Intro / firmware ID block ----------
+#define FW_FILE   __FILE__          // auto filename
+#define FW_VER    "0.3.2"          // update per release
+
+void intro() {
+  Serial.println(F("\n===== FIRMWARE INFO ====="));
+  Serial.printf("Function: %s\n", __func__);
+  Serial.printf("File: %s\n", FW_FILE);
+  Serial.printf("Version: %s\n", FW_VER);
+  Serial.printf("Binary MD5: %s\n", ESP.getSketchMD5().c_str()); // runtime binary hash
+  Serial.printf("Compiled: %s %s\n", __DATE__, __TIME__);
+  Serial.printf("Flash Size: %u bytes\n", ESP.getFlashChipRealSize());
+  Serial.printf("SDK: %s\n", ESP.getSdkVersion());
+  Serial.println(F("=========================\n"));
+}
+// call intro() early in setup()
+
 #include "SSD1306Wire.h"
 #include "OLEDDisplayUi.h"
 #include "Wire.h"
@@ -10,7 +27,7 @@ See more at https://thingpulse.com
 
 // Display Settings
 const int I2C_DISPLAY_ADDRESS = 0x3c;
-#if defined(ESP8266)
+#if defined(ESP8266) //It is when using nodemcu
 const int SDA_PIN = D2;
 const int SDC_PIN = D1;
 #else
@@ -29,6 +46,7 @@ void setup() {
   Serial.begin(9600);
   Serial.println();
   Serial.println();
+  intro();
  
   // initialize dispaly
   display.init();
