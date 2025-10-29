@@ -5,7 +5,7 @@ See more at https://thingpulse.com
 
 // --------- Intro / firmware ID block ----------
 #define FW_FILE   __FILE__          // auto filename
-#define FW_VER    "0.0.2"          // update per release
+#define FW_VER    "0.0.4"          // update per release
 
 void intro() {
   Serial.println(F("\n===== FIRMWARE INFO ====="));
@@ -49,7 +49,7 @@ void setup() {
   Serial.println();
   intro();
  
-  // initialize dispaly
+  // initialize display
   display.init();
   display.clear();
   display.display();
@@ -72,11 +72,11 @@ void setup() {
   }
 
 
-  Serial.print("BV"); Serial.print("\t"); // Bus Voltage
-  Serial.print("SV"); Serial.print("\t"); // Shunt Voltage
-  Serial.print("LV"); Serial.print("\t"); // Load Voltage
-  Serial.print("C"); Serial.print("\t");  // Current
-  Serial.println("P");  // Power
+  Serial.print("Bus Voltage"); Serial.print("\t"); // Bus Voltage
+  Serial.print("Shunt Voltage"); Serial.print("\t"); // Shunt Voltage
+  Serial.print("Load Voltage"); Serial.print("\t"); // Load Voltage
+  Serial.print("Current"); Serial.print("\t");  // Current
+  Serial.println("Power");  // Power
   //display.clear();
   //display.drawString(64, 10, "Screens working!");
 
