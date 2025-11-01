@@ -1,9 +1,23 @@
-Save the module_uptime variable into non-volitile memory so that it can be displayed upon next boot
-Make OLED screen display previous_uptime variable
-Add "Sketch Name" & date to be sent via the screen
-Clean up the hardware
-Document the hardware with a circuit diagram
-Move from breadboard to perf board
-Design PCB for cleaner connection
-Simulate PCB or get reviews from experts
-Price & Order PCB
+1) Save the module_uptime variable into non-volitile memory so that it can be displayed upon next boot for recording how long the current code lasts on battery power
+
+2) Make OLED screen display previous_uptime variable
+
+3) Add "Sketch Name" & date to be sent via the screen
+
+4) Clean up the hardware
+
+5) Document the hardware with a circuit diagram
+
+6) Move from breadboard to perf board
+
+7) Design PCB for cleaner connection
+
+8) Simulate PCB or get reviews from experts before manufacturing
+
+9) Price & Order PCB
+
+10) Garner interest and Sell the pre-orders for the boards
+
+11) Design housing & branding
+
+12) Market the product
