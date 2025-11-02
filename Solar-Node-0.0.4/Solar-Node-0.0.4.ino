@@ -44,6 +44,40 @@ const int SCL_PIN = D4; //D4;
  SSD1306Wire     display(I2C_DISPLAY_ADDRESS, SDA_PIN, SCL_PIN);
  OLEDDisplayUi   ui( &display );
 
+// 🟢 Dynamic D:H:M:S format — hides zero day/hour fields
+String getFormattedUptime() {
+  unsigned long uptimeMillis = millis();
+  unsigned long seconds = uptimeMillis / 1000;
+
+  unsigned int days = seconds / 86400UL;
+  seconds %= 86400UL;
+
+  unsigned int hours = seconds / 3600UL;
+  seconds %= 3600UL;
+
+  unsigned int minutes = seconds / 60UL;
+  seconds %= 60UL;
+
+  char buffer[25];
+
+  // Build the format dynamically
+  if (days > 0) {
+    sprintf(buffer, "%uD:%02uH:%02uM:%02uS", days, hours, minutes, (unsigned int)seconds);
+  } 
+  else if (hours > 0) {
+    sprintf(buffer, "%uH:%02uM:%02uS", hours, minutes, (unsigned int)seconds);
+  } 
+  else if (minutes > 0) {
+    sprintf(buffer, "%uM:%02uS", minutes, (unsigned int)seconds);
+  } 
+  else {
+    sprintf(buffer, "%uS", (unsigned int)seconds);
+  }
+
+  return String(buffer);
+}
+
+
 Adafruit_INA219 ina219;
 
 void setup() {
@@ -113,13 +147,13 @@ void loop() {
   display.drawString(30, 24, "loadvoltage:");
   display.drawString(30, 34, "current_mA:");
   display.drawString(30, 43, "power_mW:");
-  display.drawString(35, 53, "Uptime in sec:");
+  // display.drawString(35, 53, "Uptime in sec:");
   display.drawString(80, 4, String(busvoltage));
   display.drawString(80, 15, String(shuntvoltage));
   display.drawString(80, 25, String(loadvoltage));
   display.drawString(80, 35, String(current_mA));
   display.drawString(80, 44, String(power_mW));
-  display.drawString(80, 53, String(millis()/1000));
+  //display.drawString(80, 53, String(millis()/1000));
 
   display.display();
   delay(1000);
