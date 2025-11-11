@@ -1,6 +1,4 @@
-1a) Interpret and display module_uptime as D:M:Y:H:M:S
-
-1b) Save the module_uptime variable into non-volitile memory so that it can be displayed upon next boot for recording how long the current code lasts on battery power
+1) Save the module_uptime variable into non-volitile memory so that it can be displayed upon next boot for recording how long the current code lasts on battery power
 
 2) Make OLED screen display previous_uptime variable
 
