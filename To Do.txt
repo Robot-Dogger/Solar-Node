@@ -1,4 +1,5 @@
 **) Add menu & gui hmi with variable code and mode selection based on project wetbox tech.
+Each module/sensor and Device or System will have access to its usable code & config onboard.
 
 *) Shower code time duration temp environmental data occupant songs ideas & tone, optional sound/song recording 
 
